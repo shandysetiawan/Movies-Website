@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import CardContent from './CardContent'
 
+let baseURL = "https://api.themoviedb.org/3"
+
+
 class Card extends Component {
     constructor() {
         super()
@@ -12,12 +15,13 @@ class Card extends Component {
     render() {
         return (
             <>
-                {this.state.movies.map((movie) => {
-                    return <div className="card" style={{ width: "18rem" }} key={movie.id}>
-                        <CardContent movie={movie} />
-                    </div>
-                })}
-
+                <div className="row mt-5 justify-content-around">
+                    {this.state.movies.map((movie) => {
+                        return <div className="card mt-3 ml-3" style={{ width: "18rem" }} key={movie.id}>
+                            <CardContent movie={movie} />
+                        </div>
+                    })}
+                </div>
             </>)
     }
 

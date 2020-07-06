@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Card from './components/Card';
+import Navbar from './components/Navbar'
+import Search from './components/Search'
 import './App.css';
 
 class App extends Component {
@@ -12,7 +14,13 @@ class App extends Component {
 
   render() {
     return (
-      <Card> </Card>
+      <>
+        <div className="container">
+          <Navbar></Navbar>
+          <Search></Search>
+          <Card> </Card>
+        </div>
+      </>
     )
   }
 
