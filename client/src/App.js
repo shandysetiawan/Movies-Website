@@ -1,30 +1,23 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Card from './components/Card';
 import Navbar from './components/Navbar'
 import Search from './components/Search'
 import './App.css';
 
-class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      movies: []
-    }
-  }
+export default () => {
+  const [movies, setMovies] = useState([])
 
-  render() {
-    return (
-      <>
-        <div className="container">
-          <Navbar></Navbar>
-          <Search></Search>
-          <Card> </Card>
-        </div>
-      </>
-    )
-  }
+
+  return (
+    <>
+      <div className="container">
+        <Navbar></Navbar>
+        <Search setMovies={setMovies}></Search>
+        <h1>Movies Highlight</h1>
+        <Card setMovies={setMovies} movies={movies}> </Card>
+      </div>
+    </>
+  )
 
 }
 
-
-export default App;
