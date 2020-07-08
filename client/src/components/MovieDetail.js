@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { } from 'react';
 import useFetch from "../services/hooks/useFetch"
 import {
     useParams
@@ -15,13 +15,12 @@ export default function MovieDetail(props) {
     if (error) return <h1>Error</h1>
     return (
         <>
-            <div className="card text-center">
-                <div className="card-header">
-                </div>
+            <div className="card text-center mt-5">
                 <div className="card-body">
-                    <h5 className="card-title">{movie.title}</h5>
+                    <h1 style={{ color: "#142850" }} className="card-title">{movie.title}</h1>
                     <img src={"https://image.tmdb.org/t/p/w300/" + movie.poster_path} alt={movie.title}></img>
                     <p>Rating {movie.vote_average}</p>
+                    <p>Popularity {movie.popularity}</p>
                     <p className="card-text">{movie.overview}</p>
                 </div>
                 <div className="card-footer text-muted">

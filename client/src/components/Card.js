@@ -38,7 +38,7 @@ export default function Card(props) {
     if (error) return <h1>Error</h1>
     return (
         <>
-            <div className="row mt-5 justify-content-around">
+            <div className="row mt-5 justify-content-around" >
                 {props.movies.map((movie) => {
                     return <div className="card mt-3 ml-3" style={{ width: "15rem" }} key={movie.id}>
                         <CardContent movie={movie} />

@@ -40,13 +40,13 @@ export default function Search(props) {
 
     return (
         <>
-            <select onChange={e => getInput(e)}>
+            <select onChange={e => getInput(e)} className="form-control mt-5" style={{ width: "25vw", marginLeft: "30vw" }}>
                 <option defaultValue>Search by Genre</option>
                 {genres.map((genre) => {
                     return <option value={genre.id} key={genre.id} >{genre.name}</option>
                 })}
             </select>
-            <button type="submit" onClick={inputCategory}>Search</button>
+            <button type="button" className="btn btn-warning mt-3" style={{ marginLeft: "39vw" }} onClick={inputCategory}>Search</button>
         </>)
 
 

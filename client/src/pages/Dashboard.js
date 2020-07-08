@@ -11,7 +11,7 @@ export default function Dashboard() {
         <>
             <Navbar />
             <Search setMovies={setMovies}></Search>
-            <h1>Movies Highlight</h1>
+            <h1 className="mt-2" style={{ textAlign: "center", color: "white" }}>Movies Highlights</h1>
             <Card setMovies={setMovies} movies={movies}> </Card>
         </>
     )

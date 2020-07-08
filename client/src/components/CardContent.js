@@ -1,10 +1,17 @@
 import React, { } from 'react';
-import {
-    Link,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useDispatch } from 'react-redux'
 
 
 export default function CardContent(props) {
+
+    const dispatch = useDispatch()
+
+    function addFavorite(data) {
+
+        dispatch({ type: "ADD_FAV", payload: { newMovie: data } })
+        // console.log("di add favsss", data)
+    }
 
 
     return (
@@ -14,10 +21,11 @@ export default function CardContent(props) {
                 <h5 className="card-title">{props.movie.title}</h5>
                 <p className="card-text">{props.movie.overview}</p>
                 <Link to={`/movies/${props.movie.id}`}>
-                    <button className="btn btn-success">Detail</button>
-                    <button className="btn btn-primary" >Add to Favorites</button>
+                    <button className="btn btn-success mr-3">Detail</button>
                 </Link>
+                <button className="btn btn-danger" onClick={() => addFavorite(props.movie)}><i className="fas fa-heart"></i></button>
             </div>
         </>)
 
 }
+
