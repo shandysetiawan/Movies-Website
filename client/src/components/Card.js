@@ -4,7 +4,7 @@ import useFetch from "../services/hooks/useFetch"
 
 // let baseURL = "https://api.themoviedb.org/3"
 
-export default (props) => {
+export default function Card(props) {
     // const [movies, setMovies] = useState([])
 
     const { data, loading, error } = useFetch("https://api.themoviedb.org/3/discover/movie?api_key=27ea68148715a4e935cbcfa892205b77&language=en-US")
@@ -31,6 +31,8 @@ export default (props) => {
     //             console.log(err)
     //         });
     // };
+
+    // console.log(props.movies)
 
     if (loading) return <h1>Loading</h1>
     if (error) return <h1>Error</h1>

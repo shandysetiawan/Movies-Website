@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import useFetch from "../services/hooks/useFetch"
 
-export default (props) => {
+export default function Search(props) {
     const [genres, setGenres] = useState([])
     const [inputGenre, setInputGenre] = useState("")
     const { data } = useFetch("https://api.themoviedb.org/3/genre/movie/list?api_key=27ea68148715a4e935cbcfa892205b77&language=en-US")
@@ -23,7 +23,7 @@ export default (props) => {
                 return response.json()
             })
             .then((data) => {
-                // console.log(">>>>>", data)
+                // console.log(">>>>>", data.results[0].id)
                 // setMovies(data.results)
                 props.setMovies(data.results)
             })
