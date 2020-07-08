@@ -1,32 +1,16 @@
 import React, { useState, useEffect } from 'react';
-
+import useFetch from "../services/hooks/useFetch"
 
 export default (props) => {
     const [genres, setGenres] = useState([])
     const [inputGenre, setInputGenre] = useState("")
-
-
+    const { data } = useFetch("https://api.themoviedb.org/3/genre/movie/list?api_key=27ea68148715a4e935cbcfa892205b77&language=en-US")
 
     useEffect(() => {
-        fetchGenre()
-    }, [])
-
-
-    function fetchGenre() {
-        // fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=27ea68148715a4e935cbcfa892205b77&language=en-US")
-        fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=27ea68148715a4e935cbcfa892205b77&language=en-US")
-            .then((response) => {
-                console.log(response)
-                return response.json()
-            })
-            .then((data) => {
-                console.log(">>>>>", data)
-                setGenres(data.genres)
-            })
-            .catch((err) => {
-                console.log(err)
-            });
-    };
+        if (data.genres) {
+            setGenres(data.genres)
+        }
+    }, [data])
 
 
     function inputCategory() {
@@ -35,19 +19,17 @@ export default (props) => {
 
         fetch(`https://api.themoviedb.org/3/discover/movie?api_key=27ea68148715a4e935cbcfa892205b77&language=en-US&with_genres=${inputGenre}`)
             .then((response) => {
-                console.log(response)
+                // console.log(response)
                 return response.json()
             })
             .then((data) => {
-                console.log(">>>>>", data)
+                // console.log(">>>>>", data)
                 // setMovies(data.results)
                 props.setMovies(data.results)
             })
             .catch((err) => {
                 console.log(err)
             });
-
-
     }
 
     function getInput(event) {
@@ -66,5 +48,7 @@ export default (props) => {
             </select>
             <button type="submit" onClick={inputCategory}>Search</button>
         </>)
+
+
 
 }

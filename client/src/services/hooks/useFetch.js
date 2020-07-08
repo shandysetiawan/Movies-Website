@@ -9,10 +9,11 @@ export default function useFetch(url) {
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
-            .then(data => setData(data.results))
+            .then(data => setData(data))
             .catch(err => setError(err))
             .finally(_ => setLoading(false))
     }, [url])
+
 
     return {
         data, loading, error

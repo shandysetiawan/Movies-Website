@@ -11,8 +11,8 @@ export default (props) => {
 
 
     useEffect(() => {
-        props.setMovies(data)
-    }, [data, props])
+        props.setMovies(data.results)
+    }, [data])
 
     // function fetchMovies() {
     //     // fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=27ea68148715a4e935cbcfa892205b77&language=en-US")
@@ -38,7 +38,7 @@ export default (props) => {
         <>
             <div className="row mt-5 justify-content-around">
                 {props.movies.map((movie) => {
-                    return <div className="card mt-3 ml-3" style={{ width: "18rem" }} key={movie.id}>
+                    return <div className="card mt-3 ml-3" style={{ width: "15rem" }} key={movie.id}>
                         <CardContent movie={movie} />
                     </div>
                 })}
