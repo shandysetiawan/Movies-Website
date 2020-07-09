@@ -1,21 +1,21 @@
 import React, { } from 'react';
 import {
-    Link
+    NavLink
 } from "react-router-dom";
 
 export default function Navbar() {
 
     return (
         <>
-            <div >
+            <div>
                 <nav className="navbar justify-content-around" style={{ backgroundColor: "#00263b", color: "white" }} >
                     <p><i className="fas fa-ticket-alt"></i></p>
-                    <Link to="/">
-                        <p>Dashboard</p>
-                    </Link>
-                    <Link to="/favorites">
-                        <p>My Favorites</p>
-                    </Link>
+                    <NavLink to="/" activeStyle={{ color: "white" }} exact>
+                        Dashboard
+                    </NavLink>
+                    <NavLink to="/favorites" activeStyle={{ color: "white" }} exact>
+                        My Favorites
+                    </NavLink>
                 </nav>
             </div>
         </>)
