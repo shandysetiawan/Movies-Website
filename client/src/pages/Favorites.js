@@ -3,14 +3,18 @@ import Navbar from '../components/Navbar'
 import { useSelector } from 'react-redux'
 import { Link } from "react-router-dom";
 
-
 export default function Favorite() {
 
+    const movies = useSelector(state => state.favReducer.favs)
 
-    const movies = useSelector(state => state.favs)
-
-    // console.log(movies)
-
+    if (movies.length === 0) {
+        return (
+            <>
+                <Navbar />
+                <h1 style={{ textAlign: "center", color: "white" }}>No Favorites Movies</h1>
+            </>
+        )
+    }
     return (
         <>
             <Navbar />

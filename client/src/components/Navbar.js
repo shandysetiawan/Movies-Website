@@ -14,7 +14,7 @@ export default function Navbar() {
                         <p>Dashboard</p>
                     </Link>
                     <Link to="/favorites">
-                        <p>My Favorite</p>
+                        <p>My Favorites</p>
                     </Link>
                 </nav>
             </div>

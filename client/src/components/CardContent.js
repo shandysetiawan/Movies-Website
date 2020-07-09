@@ -1,17 +1,30 @@
 import React, { } from 'react';
 import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux'
-import { Favaction } from '../store/actions/Favaction'
+import { favAction } from '../store/actions/favAction'
+import { useSelector } from 'react-redux'
+import Swal from 'sweetalert2'
 
 
 export default function CardContent(props) {
+
+    const movies = useSelector(state => state.favReducer.favs)
 
     const dispatch = useDispatch()
 
     function addFavorite(data) {
 
-        dispatch(Favaction(data))
-        // console.log("di add favsss", data)
+        const found = movies.find(element => element.id === data.id)
+
+        if (found) {
+            Swal.fire('OOPS...', 'You already add this movie to your favorite!', 'warning')
+
+        } else {
+            dispatch(favAction(data))
+
+            Swal.fire('Success!', 'Success added movie to My Favorites', 'success')
+        }
+
     }
 
 

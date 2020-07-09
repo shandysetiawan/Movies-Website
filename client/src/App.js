@@ -4,6 +4,7 @@ import store from './store'
 import Movie from './pages/Movie'
 import Dashboard from './pages/Dashboard'
 import Favorites from './pages/Favorites'
+import NotFound from './pages/NotFound'
 
 import {
   BrowserRouter as Router,
@@ -24,6 +25,7 @@ export default () => {
               <Route path="/movies/:id" component={Movie} />
               <Route path="/favorites" exact component={Favorites} />
               <Route path="/" exact component={Dashboard} />
+              <Route component={NotFound} />
             </Switch>
           </Router>
         </Provider>

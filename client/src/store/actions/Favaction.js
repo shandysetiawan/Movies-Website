@@ -1,5 +1,5 @@
 
-export const Favaction = (data) => ({
+export const favAction = (data) => ({
 
     type: "ADD_FAV", payload: { newMovie: data }
 
