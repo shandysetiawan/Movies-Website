@@ -1,7 +1,7 @@
 import React, { } from 'react';
 import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux'
-import { favAction } from '../store/actions/favAction'
+import { favAction } from '../store/actions/favoriteAction'
 import { useSelector } from 'react-redux'
 import Swal from 'sweetalert2'
 
