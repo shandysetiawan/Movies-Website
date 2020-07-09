@@ -1,6 +1,7 @@
 import React, { } from 'react';
 import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux'
+import { Favaction } from '../store/actions/Favaction'
 
 
 export default function CardContent(props) {
@@ -9,7 +10,7 @@ export default function CardContent(props) {
 
     function addFavorite(data) {
 
-        dispatch({ type: "ADD_FAV", payload: { newMovie: data } })
+        dispatch(Favaction(data))
         // console.log("di add favsss", data)
     }
 
