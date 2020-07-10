@@ -34,7 +34,7 @@ export default function CardContent(props) {
             <div className="card-body">
                 <h5 className="card-title">{props.movie.title}</h5>
                 <p className="card-text">{props.movie.overview}</p>
-                <Link to={`/movies/${props.movie.id}`}>
+                <Link data-testid="link-detail" to={`/movies/${props.movie.id}`}>
                     <button className="btn btn-success mr-3">Detail</button>
                 </Link>
                 <button className="btn btn-danger" onClick={() => addFavorite(props.movie)}><i className="fas fa-heart"></i></button>

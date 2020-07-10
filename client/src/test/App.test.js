@@ -10,23 +10,27 @@ import App from '../App';
 
 
 test('should render App', () => {
-    const { debug, queryByRole, getByTestId, toBeInTheDocument, queryByText } = render(
+    const { debug, queryByRole, getByTestId, toBeInTheDocument, queryByText, queryByTestId, getByDisplayValue } = render(
         <App />
     )
 
-
     // debug()
     expect(queryByRole('container')).toBeInTheDocument()
+    expect(queryByTestId('link-favorite')).toBeInTheDocument()
 
     fireEvent.click(getByTestId('link-favorite'))
 
 
     expect(queryByText('My Favorites')).toBeInTheDocument()
+    expect(queryByText('No Favorites Movies')).toBeInTheDocument()
+    expect(queryByTestId('link-dashboard')).toBeInTheDocument()
 
     fireEvent.click(getByTestId('link-dashboard'))
 
+    // debug()
     expect(queryByText('Movies Highlights')).toBeInTheDocument()
-
+    expect(getByDisplayValue('Search by Genre')).toBeInTheDocument()
+    expect(queryByText('Loading')).toBeInTheDocument()
 
 })
 // })
