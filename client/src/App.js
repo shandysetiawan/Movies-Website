@@ -18,7 +18,7 @@ export default () => {
 
   return (
     <>
-      <div className="container" style={{ backgroundColor: "#6f0000" }}>
+      <div role="container" className="container" style={{ backgroundColor: "#6f0000" }}>
         <Provider store={store}>
           <Router>
             <Switch>
